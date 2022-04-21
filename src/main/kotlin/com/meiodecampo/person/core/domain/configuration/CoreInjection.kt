@@ -1,39 +1,28 @@
 package com.meiodecampo.person.core.domain.configuration
 
-import com.meiodecampo.person.core.ports.`in`.DeleteUserInputPort
-import com.meiodecampo.person.core.ports.`in`.FindUserByDocumentInputPort
-import com.meiodecampo.person.core.ports.`in`.FindUsersInputPort
-import com.meiodecampo.person.core.ports.`in`.RegisterUserInputPort
-import com.meiodecampo.person.core.ports.out.DeleteUserOutputPort
-import com.meiodecampo.person.core.ports.out.FindUserByDocumentOutputPort
-import com.meiodecampo.person.core.ports.out.FindUsersOutputPort
-import com.meiodecampo.person.core.ports.out.RegisterUserOutputPort
-import com.meiodecampo.person.core.usecases.DeleteUserUseCase
-import com.meiodecampo.person.core.usecases.FindUserByDocumentUseCase
-import com.meiodecampo.person.core.usecases.FindUsersUseCase
-import com.meiodecampo.person.core.usecases.RegisterUserUseCase
+import com.meiodecampo.person.core.ports.out.*
+import com.meiodecampo.person.core.usecases.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 class CoreInjection {
-    @Bean
-    fun registerUser(saveUserOutputPort: RegisterUserOutputPort): RegisterUserInputPort {
-        return RegisterUserUseCase(saveUserOutputPort);
-    }
 
     @Bean
-    fun findUserByDocument(findUserByDocumentOutputPort: FindUserByDocumentOutputPort): FindUserByDocumentInputPort {
-        return FindUserByDocumentUseCase(findUserByDocumentOutputPort)
-    }
+    fun findUsers(findUsersOutputPort: FindUsersOutputPort) = FindUsersUseCase(findUsersOutputPort)
 
     @Bean
-    fun findUsers(findUsersOutputPort: FindUsersOutputPort): FindUsersInputPort {
-        return FindUsersUseCase(findUsersOutputPort)
-    }
+    fun findUserById(findUserByIdOutputPort: FindUserByIdOutputPort) = FindUserByIdUseCase(findUserByIdOutputPort)
 
     @Bean
-    fun deleteUser(deleteUserOutputPort: DeleteUserOutputPort): DeleteUserInputPort {
-        return DeleteUserUseCase(deleteUserOutputPort)
-    }
+    fun findUserByDocument(findUserByDocumentOutputPort: FindUserByDocumentOutputPort) = FindUserByDocumentUseCase(findUserByDocumentOutputPort)
+
+    @Bean
+    fun deleteUser(deleteUserOutputPort: DeleteUserOutputPort) = DeleteUserUseCase(deleteUserOutputPort)
+
+    @Bean
+    fun updateUser(updateUserOutputPort: UpdateUserOutputPort) = UpdateUserUseCase(updateUserOutputPort)
+
+    @Bean
+    fun registerUser(saveUserOutputPort: RegisterUserOutputPort) = RegisterUserUseCase(saveUserOutputPort)
 }

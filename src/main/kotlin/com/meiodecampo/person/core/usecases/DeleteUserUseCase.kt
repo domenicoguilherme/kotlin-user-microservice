@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono
 import java.util.*
 
 class DeleteUserUseCase(private val deleteUserOutputPort: DeleteUserOutputPort): DeleteUserInputPort {
-    override fun delete(id: UUID): Mono<Void> {
+    override fun handle(id: UUID): Mono<Void> {
         return deleteUserOutputPort.delete(id)
     }
 }

@@ -4,5 +4,5 @@ import com.meiodecampo.person.core.domain.models.User
 import reactor.core.publisher.Flux
 
 interface FindUsersInputPort {
-    fun get() : Flux<User>
+    fun handle() : Flux<User>
 }

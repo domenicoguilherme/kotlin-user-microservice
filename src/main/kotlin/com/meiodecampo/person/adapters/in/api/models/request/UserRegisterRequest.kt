@@ -1,6 +1,4 @@
-package com.meiodecampo.person.core.domain.models.request
-
-import java.time.LocalDate
+package com.meiodecampo.person.adapters.`in`.api.models.request
 
 class UserRegisterRequest(
     val firstName: String,

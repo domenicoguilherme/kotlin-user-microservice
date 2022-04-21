@@ -4,5 +4,5 @@ import reactor.core.publisher.Mono
 import java.util.*
 
 interface DeleteUserInputPort {
-    fun delete(id: UUID): Mono<Void>
+    fun handle(id: UUID): Mono<Void>
 }

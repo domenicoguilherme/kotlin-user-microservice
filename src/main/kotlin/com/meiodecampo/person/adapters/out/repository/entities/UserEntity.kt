@@ -2,14 +2,13 @@ package com.meiodecampo.person.adapters.out.repository.entities
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import java.time.LocalDate
 import java.util.*
 
 @Document
 class UserEntity(
     @Id
-    val id: UUID,
-    val firstName: String,
-    val lastName: String,
-    val nickname: String,
-    val document: String)
+    var id: UUID,
+    var firstName: String,
+    var lastName: String,
+    var nickname: String,
+    var document: String)

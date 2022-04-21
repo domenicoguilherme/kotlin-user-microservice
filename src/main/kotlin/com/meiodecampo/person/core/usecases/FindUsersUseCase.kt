@@ -6,7 +6,7 @@ import com.meiodecampo.person.core.ports.out.FindUsersOutputPort
 import reactor.core.publisher.Flux
 
 class FindUsersUseCase(private val findUsersOutputPort: FindUsersOutputPort): FindUsersInputPort {
-    override fun get(): Flux<User> {
+    override fun handle(): Flux<User> {
         return findUsersOutputPort.get()
     }
 }
