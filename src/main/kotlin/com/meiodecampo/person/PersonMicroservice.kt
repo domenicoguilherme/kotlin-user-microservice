@@ -14,10 +14,3 @@ class PersonMicroservice
 fun main(args: Array<String>) {
 	runApplication<PersonMicroservice>(*args)
 }
-
-//
-//fun main(args: Array<String>) {
-//	val app = SpringApplication(PersonMicroservice::class.java)
-//	app.webApplicationType = WebApplicationType.REACTIVE
-//	app.run(*args)
-//}
